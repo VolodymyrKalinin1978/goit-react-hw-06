@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ContainerSearch, Input, Label } from './SearchBox.styled';
 import { updateFilter } from '../../redux/filtersSlice';
 
-export const SearchBox = () => {
+const SearchBox = () => {
   const searchId = useId();
   const dispatch = useDispatch();
   const searchFilter = useSelector(state => state.filters.name);
@@ -20,3 +20,5 @@ export const SearchBox = () => {
     </ContainerSearch>
   );
 };
+
+export default SearchBox;

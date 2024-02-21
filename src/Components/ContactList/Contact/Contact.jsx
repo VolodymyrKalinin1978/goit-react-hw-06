@@ -4,7 +4,7 @@ import { deleteContact } from '../../../redux/contactsSlice';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-export const Contact = () => {
+const Contact = () => {
   const dispatch = useDispatch();
   const contactList = useSelector(state => state.contacts.items);
   const searchFilter = useSelector(state => state.filters.name);
@@ -35,3 +35,5 @@ export const Contact = () => {
     </>
   );
 };
+
+export default Contact;

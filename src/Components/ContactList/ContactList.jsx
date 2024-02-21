@@ -1,11 +1,13 @@
-import { Contact } from './Contact/Contact';
+import Contact from './Contact/Contact';
 
 import { ContainerList } from './ContactList.styled';
 
-export const ContactList = () => {
+const ContactList = () => {
   return (
     <ContainerList>
       <Contact />
     </ContainerList>
   );
 };
+
+export default ContactList;

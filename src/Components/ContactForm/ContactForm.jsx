@@ -17,7 +17,7 @@ const contactSchema = Yup.object().shape({
   number: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('Required'),
 });
 
-export const ContactForm = () => {
+const ContactForm = () => {
   const nameFieldId = useId();
   const numberFieldId = useId();
   const dispatch = useDispatch();
@@ -54,3 +54,5 @@ export const ContactForm = () => {
     </Formik>
   );
 };
+
+export default ContactForm;
