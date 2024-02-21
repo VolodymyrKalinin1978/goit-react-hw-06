@@ -1,10 +1,21 @@
 import { Button } from 'Components/Button/Button.styled';
 import { ContainerLi, Person, Telefone } from './Contact.styled';
+import { deleteContact } from '../../../redux/contactsSlice';
 
-export const Contact = ({ contactList, onDelete }) => {
+import { useDispatch, useSelector } from 'react-redux';
+
+export const Contact = () => {
+  const dispatch = useDispatch();
+  const contactList = useSelector(state => state.contacts.items);
+  const searchFilter = useSelector(state => state.filters.name);
+
+  const filteredContacts = contactList.filter(contactLists =>
+    contactLists.name.toLowerCase().includes(searchFilter.toLowerCase())
+  );
+
   return (
     <>
-      {contactList.map(contactLists => (
+      {filteredContacts.map(contactLists => (
         <ContainerLi key={contactLists.id}>
           <div>
             <p>
@@ -16,7 +27,7 @@ export const Contact = ({ contactList, onDelete }) => {
               {contactLists.number}
             </p>
           </div>
-          <Button type="button" onClick={() => onDelete(contactLists.id)}>
+          <Button type="button" onClick={() => dispatch(deleteContact(contactLists.id))}>
             Delete
           </Button>
         </ContainerLi>
